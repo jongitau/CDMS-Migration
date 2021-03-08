@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IQCareKAWEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DTL_FBCUSTOMFIELD_Epicare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ptn_pk" Type="int" Nullable="false" />
+          <Property Name="Visit_Pk" Type="int" Nullable="false" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="NoANCVisits" Type="int" />
+          <Property Name="OtherImmunisation" Type="varchar" MaxLength="250" />
+          <Property Name="EPFUComplaints" Type="int" />
+          <Property Name="EPFUNoSeizuresSinceLastVisit" Type="varchar" MaxLength="50" />
+          <Property Name="EPFUTakeMedsDaily" Type="bit" />
+          <Property Name="EPFUHowManyTimesMissed" Type="int" />
+          <Property Name="EPFUTakeMedsPrescribedTime" Type="int" />
+          <Property Name="EPFUSeizuresAfterMissingMeds" Type="int" />
+          <Property Name="EpiComplaint" Type="varchar" MaxLength="250" />
+          <Property Name="EPFUSideEffectsOther" Type="varchar" MaxLength="250" />
+          <Property Name="EPFUDosingFrequency" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="DTL_FBCUSTOMFIELD_Epicare_Patient_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ptn_pk" Type="int" Nullable="false" />
+          <Property Name="Visit_Pk" Type="int" Nullable="false" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="EPMotherAlive" Type="bit" />
+          <Property Name="EPMothersName" Type="varchar" MaxLength="250" />
+          <Property Name="EPMothersAge" Type="int" />
+          <Property Name="EPMothersOccupation" Type="varchar" MaxLength="250" />
+          <Property Name="EPMothersMaritalStatus" Type="int" />
+          <Property Name="EPMothersEucation" Type="int" />
+          <Property Name="EPFatherAlive" Type="bit" />
+          <Property Name="EPFathersName" Type="varchar" MaxLength="250" />
+          <Property Name="EPFathersAge" Type="int" />
+          <Property Name="EPFathersOccupation" Type="varchar" MaxLength="250" />
+          <Property Name="EPFathersEducation" Type="int" />
+          <Property Name="EPHistoryConvulsion" Type="bit" />
+          <Property Name="EPHistoryRetardation" Type="varchar" MaxLength="250" />
+          <Property Name="EPPxBirthOrder" Type="int" />
+          <Property Name="EPMothersAgePxBirth" Type="int" />
+          <Property Name="EPMotherSickDuringPregnancy" Type="bit" />
+          <Property Name="EPDescribeSicknessDuringPregnancy" Type="varchar" MaxLength="4000" />
+          <Property Name="EPDurationPregnancy" Type="int" />
+          <Property Name="EPMultipleBirth" Type="int" />
+          <Property Name="EPPlaceOfDelivery" Type="int" />
+          <Property Name="EPModeOfDelivery" Type="int" />
+          <Property Name="EPDurationOfDelivery" Type="int" />
+          <Property Name="EPSizeOfBaby" Type="int" />
+          <Property Name="EPWhatAge1stSeizure" Type="int" />
+          <Property Name="EPFullSeizureDescription" Type="varchar" MaxLength="4000" />
+          <Property Name="EPUnconsiousness" Type="bit" />
+          <Property Name="EPCloudingConsiousness" Type="bit" />
+          <Property Name="EPStiffness" Type="bit" />
+          <Property Name="EPJerking" Type="int" />
+          <Property Name="EPJerkingSmallMovements" Type="bit" />
+          <Property Name="EPNoMovementSloppyness" Type="bit" />
+          <Property Name="EPMainlyStrangeBehavior" Type="bit" />
+          <Property Name="EPDroolingSaliva" Type="bit" />
+          <Property Name="EPBittingTongue" Type="bit" />
+          <Property Name="EPIncontinenceStoolUrine" Type="bit" />
+          <Property Name="EPDoesPxKnowSeizureComing" Type="bit" />
+          <Property Name="EPHowPxKnowsSeizureComing" Type="varchar" MaxLength="250" />
+          <Property Name="EPAlwaysFeverWithSeizure" Type="bit" />
+          <Property Name="EPSeizureSameAsFirstAttack" Type="bit" />
+          <Property Name="EPWhenLastSeizure" Type="datetime" />
+          <Property Name="EPWhenLastSeizureBeforeLast" Type="datetime" />
+          <Property Name="EPSeizureConsecutiveDays" Type="bit" />
+          <Property Name="EPSeizuresRelatedNaturalEvents" Type="bit" />
+          <Property Name="EPWhenSeizuresOccurMostly" Type="int" />
+          <Property Name="EPSmileMilestone" Type="int" />
+          <Property Name="EPCrawlMilestone" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EPSitMilestone" Type="int" />
+          <Property Name="EPStandMilestone" Type="int" />
+          <Property Name="EPWalkMilestone" Type="int" />
+          <Property Name="EPTalkMilestone" Type="int" />
+          <Property Name="EPFeedMilestone" Type="int" />
+          <Property Name="EPToiletTrainedMilestone" Type="int" />
+          <Property Name="EPWeaknessLimbs" Type="bit" />
+          <Property Name="EPStiffnessLimbs" Type="bit" />
+          <Property Name="EPDoesPxSeeWell" Type="bit" />
+          <Property Name="EPDoesPxHearWell" Type="bit" />
+          <Property Name="EPDoesPxTalkWell" Type="bit" />
+          <Property Name="EPPxMentalBehavior" Type="int" />
+          <Property Name="EPMentalRetardation" Type="int" />
+          <Property Name="EPImmunizationStatusChild" Type="int" />
+          <Property Name="EPDailyPxActivities" Type="int" />
+          <Property Name="EPReasonNoSchooling" Type="int" />
+          <Property Name="EPPxDailyActivitiesNotSchool" Type="int" />
+          <Property Name="EPPxTraining" Type="bit" />
+          <Property Name="EPPxpaidforWork" Type="bit" />
+          <Property Name="EPPxAdultFemalwithKids" Type="int" />
+          <Property Name="EPPxCouncelledContraceptives" Type="bit" />
+          <Property Name="EPHAdmissionReason" Type="varchar" MaxLength="4000" />
+          <Property Name="EPIWhatAgeFirstSeizureMonths" Type="int" />
+          <Property Name="EPISeizureDiagnosisMore" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="dtl_PatientAppointment">
+          <Key>
+            <PropertyRef Name="AppointmentId" />
+          </Key>
+          <Property Name="Ptn_pk" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="Visit_pk" Type="int" Nullable="false" />
+          <Property Name="AppDate" Type="datetime" Nullable="false" />
+          <Property Name="AppReason" Type="int" />
+          <Property Name="AppStatus" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="bigint" />
+          <Property Name="DeleteFlag" Type="bit" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="ModuleId" Type="int" />
+          <Property Name="AppNote" Type="varchar" MaxLength="250" />
+          <Property Name="UpdateUserId" Type="int" />
+          <Property Name="AppointmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mst_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserLastName" Type="varchar" MaxLength="50" />
+          <Property Name="UserFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="DeleteFlag" Type="int" />
+          <Property Name="OperatorID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="EmployeeId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IQCareKAWE.dbo.Mst_Drug' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Mst_Drug">
+          <Key>
+            <PropertyRef Name="Drug_pk" />
+            <PropertyRef Name="ItemTypeID" />
+            <PropertyRef Name="DrugName" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="SellingUnitPrice" />
+            <PropertyRef Name="Sequence" />
+          </Key>
+          <Property Name="Drug_pk" Type="int" Nullable="false" />
+          <Property Name="DrugID" Type="varchar" MaxLength="50" />
+          <Property Name="ItemTypeID" Type="int" Nullable="false" />
+          <Property Name="DrugName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DeleteFlag" Type="bit" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="DispensingMargin" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DispensingUnitPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FDACode" Type="varchar" MaxLength="50" />
+          <Property Name="Manufacturer" Type="int" />
+          <Property Name="MaxStock" Type="int" />
+          <Property Name="MinStock" Type="int" />
+          <Property Name="PurchaseUnitPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="QtyPerPurchaseUnit" Type="int" />
+          <Property Name="SellingUnitPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DispensingUnit" Type="int" />
+          <Property Name="PurchaseUnit" Type="int" />
+          <Property Name="EffectiveDate" Type="datetime" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="ItemInstructions" Type="varchar" MaxLength="250" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="pr_PxMigration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="IQCareKAWEModelStoreContainer">
+          <EntitySet Name="DTL_FBCUSTOMFIELD_Epicare" EntityType="Self.DTL_FBCUSTOMFIELD_Epicare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DTL_FBCUSTOMFIELD_Epicare_Patient_History" EntityType="Self.DTL_FBCUSTOMFIELD_Epicare_Patient_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dtl_PatientAppointment" EntityType="Self.dtl_PatientAppointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mst_User" EntityType="Self.mst_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mst_Drug" EntityType="Self.Mst_Drug" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Mst_Drug].[Drug_pk] AS [Drug_pk], 
+    [Mst_Drug].[DrugID] AS [DrugID], 
+    [Mst_Drug].[ItemTypeID] AS [ItemTypeID], 
+    [Mst_Drug].[DrugName] AS [DrugName], 
+    [Mst_Drug].[DeleteFlag] AS [DeleteFlag], 
+    [Mst_Drug].[UserID] AS [UserID], 
+    [Mst_Drug].[CreateDate] AS [CreateDate], 
+    [Mst_Drug].[UpdateDate] AS [UpdateDate], 
+    [Mst_Drug].[DispensingMargin] AS [DispensingMargin], 
+    [Mst_Drug].[DispensingUnitPrice] AS [DispensingUnitPrice], 
+    [Mst_Drug].[FDACode] AS [FDACode], 
+    [Mst_Drug].[Manufacturer] AS [Manufacturer], 
+    [Mst_Drug].[MaxStock] AS [MaxStock], 
+    [Mst_Drug].[MinStock] AS [MinStock], 
+    [Mst_Drug].[PurchaseUnitPrice] AS [PurchaseUnitPrice], 
+    [Mst_Drug].[QtyPerPurchaseUnit] AS [QtyPerPurchaseUnit], 
+    [Mst_Drug].[SellingUnitPrice] AS [SellingUnitPrice], 
+    [Mst_Drug].[DispensingUnit] AS [DispensingUnit], 
+    [Mst_Drug].[PurchaseUnit] AS [PurchaseUnit], 
+    [Mst_Drug].[EffectiveDate] AS [EffectiveDate], 
+    [Mst_Drug].[Sequence] AS [Sequence], 
+    [Mst_Drug].[ItemInstructions] AS [ItemInstructions], 
+    [Mst_Drug].[Abbreviation] AS [Abbreviation]
+    FROM [dbo].[Mst_Drug] AS [Mst_Drug]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IQCareKAWEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IQCareKAWEEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="pr_PxMigration" ReturnType="Collection(IQCareKAWEModel.pr_PxMigration_Result)" />
+          <EntitySet Name="DTL_FBCUSTOMFIELD_Epicare" EntityType="IQCareKAWEModel.DTL_FBCUSTOMFIELD_Epicare" />
+          <EntitySet Name="DTL_FBCUSTOMFIELD_Epicare_Patient_History" EntityType="IQCareKAWEModel.DTL_FBCUSTOMFIELD_Epicare_Patient_History" />
+          <EntitySet Name="dtl_PatientAppointment" EntityType="IQCareKAWEModel.dtl_PatientAppointment" />
+          <EntitySet Name="mst_User" EntityType="IQCareKAWEModel.mst_User" />
+          <EntitySet Name="Mst_Drug" EntityType="IQCareKAWEModel.Mst_Drug" />
+        </EntityContainer>
+        <ComplexType Name="pr_PxMigration_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="PatientEnrollmentID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PatientClinicID" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ReferredFrom" Nullable="true" />
+          <Property Type="Int32" Name="LocationID" Nullable="true" />
+          <Property Type="String" Name="fname" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="mname" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="lname" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="anonymous" Nullable="false" MaxLength="2" />
+          <Property Type="DateTime" Name="DOB" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="estimated_age" Nullable="true" />
+          <Property Type="String" Name="gender" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="nationality" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="County" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="address" Nullable="false" MaxLength="71" />
+          <Property Type="String" Name="telephone" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="email" Nullable="true" />
+          <Property Type="String" Name="picture" Nullable="false" MaxLength="17" />
+          <Property Type="Int32" Name="DistrictName" Nullable="true" />
+          <Property Type="Int32" Name="Province" Nullable="true" />
+          <Property Type="Int32" Name="MaritalStatus" Nullable="true" />
+          <Property Type="String" Name="ID_PassportNo" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Town" Nullable="true" />
+          <Property Type="String" Name="ID_PassportNo1" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TreatmentSupporterRelationship" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="NHIFNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="NCPWDNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="UHCNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EpicarePatientInsuranceCover" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EpicareAllergies" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="staff_id" Nullable="true" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="updated_at" Nullable="false" Precision="23" />
+        </ComplexType>
+        <EntityType Name="DTL_FBCUSTOMFIELD_Epicare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ptn_pk" Type="Int32" Nullable="false" />
+          <Property Name="Visit_Pk" Type="Int32" Nullable="false" />
+          <Property Name="LocationId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="NoANCVisits" Type="Int32" />
+          <Property Name="OtherImmunisation" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPFUComplaints" Type="Int32" />
+          <Property Name="EPFUNoSeizuresSinceLastVisit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EPFUTakeMedsDaily" Type="Boolean" />
+          <Property Name="EPFUHowManyTimesMissed" Type="Int32" />
+          <Property Name="EPFUTakeMedsPrescribedTime" Type="Int32" />
+          <Property Name="EPFUSeizuresAfterMissingMeds" Type="Int32" />
+          <Property Name="EpiComplaint" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPFUSideEffectsOther" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPFUDosingFrequency" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DTL_FBCUSTOMFIELD_Epicare_Patient_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ptn_pk" Type="Int32" Nullable="false" />
+          <Property Name="Visit_Pk" Type="Int32" Nullable="false" />
+          <Property Name="LocationId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="EPMotherAlive" Type="Boolean" />
+          <Property Name="EPMothersName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPMothersAge" Type="Int32" />
+          <Property Name="EPMothersOccupation" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPMothersMaritalStatus" Type="Int32" />
+          <Property Name="EPMothersEucation" Type="Int32" />
+          <Property Name="EPFatherAlive" Type="Boolean" />
+          <Property Name="EPFathersName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPFathersAge" Type="Int32" />
+          <Property Name="EPFathersOccupation" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPFathersEducation" Type="Int32" />
+          <Property Name="EPHistoryConvulsion" Type="Boolean" />
+          <Property Name="EPHistoryRetardation" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPPxBirthOrder" Type="Int32" />
+          <Property Name="EPMothersAgePxBirth" Type="Int32" />
+          <Property Name="EPMotherSickDuringPregnancy" Type="Boolean" />
+          <Property Name="EPDescribeSicknessDuringPregnancy" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="EPDurationPregnancy" Type="Int32" />
+          <Property Name="EPMultipleBirth" Type="Int32" />
+          <Property Name="EPPlaceOfDelivery" Type="Int32" />
+          <Property Name="EPModeOfDelivery" Type="Int32" />
+          <Property Name="EPDurationOfDelivery" Type="Int32" />
+          <Property Name="EPSizeOfBaby" Type="Int32" />
+          <Property Name="EPWhatAge1stSeizure" Type="Int32" />
+          <Property Name="EPFullSeizureDescription" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="EPUnconsiousness" Type="Boolean" />
+          <Property Name="EPCloudingConsiousness" Type="Boolean" />
+          <Property Name="EPStiffness" Type="Boolean" />
+          <Property Name="EPJerking" Type="Int32" />
+          <Property Name="EPJerkingSmallMovements" Type="Boolean" />
+          <Property Name="EPNoMovementSloppyness" Type="Boolean" />
+          <Property Name="EPMainlyStrangeBehavior" Type="Boolean" />
+          <Property Name="EPDroolingSaliva" Type="Boolean" />
+          <Property Name="EPBittingTongue" Type="Boolean" />
+          <Property Name="EPIncontinenceStoolUrine" Type="Boolean" />
+          <Property Name="EPDoesPxKnowSeizureComing" Type="Boolean" />
+          <Property Name="EPHowPxKnowsSeizureComing" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EPAlwaysFeverWithSeizure" Type="Boolean" />
+          <Property Name="EPSeizureSameAsFirstAttack" Type="Boolean" />
+          <Property Name="EPWhenLastSeizure" Type="DateTime" Precision="3" />
+          <Property Name="EPWhenLastSeizureBeforeLast" Type="DateTime" Precision="3" />
+          <Property Name="EPSeizureConsecutiveDays" Type="Boolean" />
+          <Property Name="EPSeizuresRelatedNaturalEvents" Type="Boolean" />
+          <Property Name="EPWhenSeizuresOccurMostly" Type="Int32" />
+          <Property Name="EPSmileMilestone" Type="Int32" />
+          <Property Name="EPCrawlMilestone" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EPSitMilestone" Type="Int32" />
+          <Property Name="EPStandMilestone" Type="Int32" />
+          <Property Name="EPWalkMilestone" Type="Int32" />
+          <Property Name="EPTalkMilestone" Type="Int32" />
+          <Property Name="EPFeedMilestone" Type="Int32" />
+          <Property Name="EPToiletTrainedMilestone" Type="Int32" />
+          <Property Name="EPWeaknessLimbs" Type="Boolean" />
+          <Property Name="EPStiffnessLimbs" Type="Boolean" />
+          <Property Name="EPDoesPxSeeWell" Type="Boolean" />
+          <Property Name="EPDoesPxHearWell" Type="Boolean" />
+          <Property Name="EPDoesPxTalkWell" Type="Boolean" />
+          <Property Name="EPPxMentalBehavior" Type="Int32" />
+          <Property Name="EPMentalRetardation" Type="Int32" />
+          <Property Name="EPImmunizationStatusChild" Type="Int32" />
+          <Property Name="EPDailyPxActivities" Type="Int32" />
+          <Property Name="EPReasonNoSchooling" Type="Int32" />
+          <Property Name="EPPxDailyActivitiesNotSchool" Type="Int32" />
+          <Property Name="EPPxTraining" Type="Boolean" />
+          <Property Name="EPPxpaidforWork" Type="Boolean" />
+          <Property Name="EPPxAdultFemalwithKids" Type="Int32" />
+          <Property Name="EPPxCouncelledContraceptives" Type="Boolean" />
+          <Property Name="EPHAdmissionReason" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="EPIWhatAgeFirstSeizureMonths" Type="Int32" />
+          <Property Name="EPISeizureDiagnosisMore" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="dtl_PatientAppointment">
+          <Key>
+            <PropertyRef Name="AppointmentId" />
+          </Key>
+          <Property Name="Ptn_pk" Type="Int32" Nullable="false" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="Visit_pk" Type="Int32" Nullable="false" />
+          <Property Name="AppDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AppReason" Type="Int32" />
+          <Property Name="AppStatus" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int64" />
+          <Property Name="DeleteFlag" Type="Boolean" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModuleId" Type="Int32" />
+          <Property Name="AppNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateUserId" Type="Int32" />
+          <Property Name="AppointmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="mst_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteFlag" Type="Int32" />
+          <Property Name="OperatorID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Mst_Drug">
+          <Key>
+            <PropertyRef Name="Drug_pk" />
+            <PropertyRef Name="ItemTypeID" />
+            <PropertyRef Name="DrugName" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="SellingUnitPrice" />
+            <PropertyRef Name="Sequence" />
+          </Key>
+          <Property Name="Drug_pk" Type="Int32" Nullable="false" />
+          <Property Name="DrugID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ItemTypeID" Type="Int32" Nullable="false" />
+          <Property Name="DrugName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteFlag" Type="Boolean" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="DispensingMargin" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DispensingUnitPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FDACode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Manufacturer" Type="Int32" />
+          <Property Name="MaxStock" Type="Int32" />
+          <Property Name="MinStock" Type="Int32" />
+          <Property Name="PurchaseUnitPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="QtyPerPurchaseUnit" Type="Int32" />
+          <Property Name="SellingUnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="DispensingUnit" Type="Int32" />
+          <Property Name="PurchaseUnit" Type="Int32" />
+          <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
+          <Property Name="ItemInstructions" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IQCareKAWEModelStoreContainer" CdmEntityContainer="IQCareKAWEEntities" >
+          <FunctionImportMapping FunctionImportName="pr_PxMigration" FunctionName="IQCareKAWEModel.Store.pr_PxMigration">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IQCareKAWEModel.pr_PxMigration_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PatientEnrollmentID" ColumnName="PatientEnrollmentID" />
+                <ScalarProperty Name="PatientClinicID" ColumnName="PatientClinicID" />
+                <ScalarProperty Name="ReferredFrom" ColumnName="ReferredFrom" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="anonymous" ColumnName="anonymous" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="estimated_age" ColumnName="estimated_age" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="ID_PassportNo" ColumnName="ID/PassportNo" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="ID_PassportNo1" ColumnName="ID/PassportNo1" />
+                <ScalarProperty Name="TreatmentSupporterRelationship" ColumnName="TreatmentSupporterRelationship" />
+                <ScalarProperty Name="NHIFNumber" ColumnName="NHIFNumber" />
+                <ScalarProperty Name="NCPWDNumber" ColumnName="NCPWDNumber" />
+                <ScalarProperty Name="UHCNumber" ColumnName="UHCNumber" />
+                <ScalarProperty Name="EpicarePatientInsuranceCover" ColumnName="EpicarePatientInsuranceCover" />
+                <ScalarProperty Name="EpicareAllergies" ColumnName="EpicareAllergies" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DTL_FBCUSTOMFIELD_Epicare">
+            <EntityTypeMapping TypeName="IQCareKAWEModel.DTL_FBCUSTOMFIELD_Epicare">
+              <MappingFragment StoreEntitySet="DTL_FBCUSTOMFIELD_Epicare">
+                <ScalarProperty Name="EPFUDosingFrequency" ColumnName="EPFUDosingFrequency" />
+                <ScalarProperty Name="EPFUSideEffectsOther" ColumnName="EPFUSideEffectsOther" />
+                <ScalarProperty Name="EpiComplaint" ColumnName="EpiComplaint" />
+                <ScalarProperty Name="EPFUSeizuresAfterMissingMeds" ColumnName="EPFUSeizuresAfterMissingMeds" />
+                <ScalarProperty Name="EPFUTakeMedsPrescribedTime" ColumnName="EPFUTakeMedsPrescribedTime" />
+                <ScalarProperty Name="EPFUHowManyTimesMissed" ColumnName="EPFUHowManyTimesMissed" />
+                <ScalarProperty Name="EPFUTakeMedsDaily" ColumnName="EPFUTakeMedsDaily" />
+                <ScalarProperty Name="EPFUNoSeizuresSinceLastVisit" ColumnName="EPFUNoSeizuresSinceLastVisit" />
+                <ScalarProperty Name="EPFUComplaints" ColumnName="EPFUComplaints" />
+                <ScalarProperty Name="OtherImmunisation" ColumnName="OtherImmunisation" />
+                <ScalarProperty Name="NoANCVisits" ColumnName="NoANCVisits" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="Visit_Pk" ColumnName="Visit_Pk" />
+                <ScalarProperty Name="Ptn_pk" ColumnName="Ptn_pk" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DTL_FBCUSTOMFIELD_Epicare_Patient_History">
+            <EntityTypeMapping TypeName="IQCareKAWEModel.DTL_FBCUSTOMFIELD_Epicare_Patient_History">
+              <MappingFragment StoreEntitySet="DTL_FBCUSTOMFIELD_Epicare_Patient_History">
+                <ScalarProperty Name="EPISeizureDiagnosisMore" ColumnName="EPISeizureDiagnosisMore" />
+                <ScalarProperty Name="EPIWhatAgeFirstSeizureMonths" ColumnName="EPIWhatAgeFirstSeizureMonths" />
+                <ScalarProperty Name="EPHAdmissionReason" ColumnName="EPHAdmissionReason" />
+                <ScalarProperty Name="EPPxCouncelledContraceptives" ColumnName="EPPxCouncelledContraceptives" />
+                <ScalarProperty Name="EPPxAdultFemalwithKids" ColumnName="EPPxAdultFemalwithKids" />
+                <ScalarProperty Name="EPPxpaidforWork" ColumnName="EPPxpaidforWork" />
+                <ScalarProperty Name="EPPxTraining" ColumnName="EPPxTraining" />
+                <ScalarProperty Name="EPPxDailyActivitiesNotSchool" ColumnName="EPPxDailyActivitiesNotSchool" />
+                <ScalarProperty Name="EPReasonNoSchooling" ColumnName="EPReasonNoSchooling" />
+                <ScalarProperty Name="EPDailyPxActivities" ColumnName="EPDailyPxActivities" />
+                <ScalarProperty Name="EPImmunizationStatusChild" ColumnName="EPImmunizationStatusChild" />
+                <ScalarProperty Name="EPMentalRetardation" ColumnName="EPMentalRetardation" />
+                <ScalarProperty Name="EPPxMentalBehavior" ColumnName="EPPxMentalBehavior" />
+                <ScalarProperty Name="EPDoesPxTalkWell" ColumnName="EPDoesPxTalkWell" />
+                <ScalarProperty Name="EPDoesPxHearWell" ColumnName="EPDoesPxHearWell" />
+                <ScalarProperty Name="EPDoesPxSeeWell" ColumnName="EPDoesPxSeeWell" />
+                <ScalarProperty Name="EPStiffnessLimbs" ColumnName="EPStiffnessLimbs" />
+                <ScalarProperty Name="EPWeaknessLimbs" ColumnName="EPWeaknessLimbs" />
+                <ScalarProperty Name="EPToiletTrainedMilestone" ColumnName="EPToiletTrainedMilestone" />
+                <ScalarProperty Name="EPFeedMilestone" ColumnName="EPFeedMilestone" />
+                <ScalarProperty Name="EPTalkMilestone" ColumnName="EPTalkMilestone" />
+                <ScalarProperty Name="EPWalkMilestone" ColumnName="EPWalkMilestone" />
+                <ScalarProperty Name="EPStandMilestone" ColumnName="EPStandMilestone" />
+                <ScalarProperty Name="EPSitMilestone" ColumnName="EPSitMilestone" />
+                <ScalarProperty Name="EPCrawlMilestone" ColumnName="EPCrawlMilestone" />
+                <ScalarProperty Name="EPSmileMilestone" ColumnName="EPSmileMilestone" />
+                <ScalarProperty Name="EPWhenSeizuresOccurMostly" ColumnName="EPWhenSeizuresOccurMostly" />
+                <ScalarProperty Name="EPSeizuresRelatedNaturalEvents" ColumnName="EPSeizuresRelatedNaturalEvents" />
+                <ScalarProperty Name="EPSeizureConsecutiveDays" ColumnName="EPSeizureConsecutiveDays" />
+                <ScalarProperty Name="EPWhenLastSeizureBeforeLast" ColumnName="EPWhenLastSeizureBeforeLast" />
+                <ScalarProperty Name="EPWhenLastSeizure" ColumnName="EPWhenLastSeizure" />
+                <ScalarProperty Name="EPSeizureSameAsFirstAttack" ColumnName="EPSeizureSameAsFirstAttack" />
+                <ScalarProperty Name="EPAlwaysFeverWithSeizure" ColumnName="EPAlwaysFeverWithSeizure" />
+                <ScalarProperty Name="EPHowPxKnowsSeizureComing" ColumnName="EPHowPxKnowsSeizureComing" />
+                <ScalarProperty Name="EPDoesPxKnowSeizureComing" ColumnName="EPDoesPxKnowSeizureComing" />
+                <ScalarProperty Name="EPIncontinenceStoolUrine" ColumnName="EPIncontinenceStoolUrine" />
+                <ScalarProperty Name="EPBittingTongue" ColumnName="EPBittingTongue" />
+                <ScalarProperty Name="EPDroolingSaliva" ColumnName="EPDroolingSaliva" />
+                <ScalarProperty Name="EPMainlyStrangeBehavior" ColumnName="EPMainlyStrangeBehavior" />
+                <ScalarProperty Name="EPNoMovementSloppyness" ColumnName="EPNoMovementSloppyness" />
+                <ScalarProperty Name="EPJerkingSmallMovements" ColumnName="EPJerkingSmallMovements" />
+                <ScalarProperty Name="EPJerking" ColumnName="EPJerking" />
+                <ScalarProperty Name="EPStiffness" ColumnName="EPStiffness" />
+                <ScalarProperty Name="EPCloudingConsiousness" ColumnName="EPCloudingConsiousness" />
+                <ScalarProperty Name="EPUnconsiousness" ColumnName="EPUnconsiousness" />
+                <ScalarProperty Name="EPFullSeizureDescription" ColumnName="EPFullSeizureDescription" />
+                <ScalarProperty Name="EPWhatAge1stSeizure" ColumnName="EPWhatAge1stSeizure" />
+                <ScalarProperty Name="EPSizeOfBaby" ColumnName="EPSizeOfBaby" />
+                <ScalarProperty Name="EPDurationOfDelivery" ColumnName="EPDurationOfDelivery" />
+                <ScalarProperty Name="EPModeOfDelivery" ColumnName="EPModeOfDelivery" />
+                <ScalarProperty Name="EPPlaceOfDelivery" ColumnName="EPPlaceOfDelivery" />
+                <ScalarProperty Name="EPMultipleBirth" ColumnName="EPMultipleBirth" />
+                <ScalarProperty Name="EPDurationPregnancy" ColumnName="EPDurationPregnancy" />
+                <ScalarProperty Name="EPDescribeSicknessDuringPregnancy" ColumnName="EPDescribeSicknessDuringPregnancy" />
+                <ScalarProperty Name="EPMotherSickDuringPregnancy" ColumnName="EPMotherSickDuringPregnancy" />
+                <ScalarProperty Name="EPMothersAgePxBirth" ColumnName="EPMothersAgePxBirth" />
+                <ScalarProperty Name="EPPxBirthOrder" ColumnName="EPPxBirthOrder" />
+                <ScalarProperty Name="EPHistoryRetardation" ColumnName="EPHistoryRetardation" />
+                <ScalarProperty Name="EPHistoryConvulsion" ColumnName="EPHistoryConvulsion" />
+                <ScalarProperty Name="EPFathersEducation" ColumnName="EPFathersEducation" />
+                <ScalarProperty Name="EPFathersOccupation" ColumnName="EPFathersOccupation" />
+                <ScalarProperty Name="EPFathersAge" ColumnName="EPFathersAge" />
+                <ScalarProperty Name="EPFathersName" ColumnName="EPFathersName" />
+                <ScalarProperty Name="EPFatherAlive" ColumnName="EPFatherAlive" />
+                <ScalarProperty Name="EPMothersEucation" ColumnName="EPMothersEucation" />
+                <ScalarProperty Name="EPMothersMaritalStatus" ColumnName="EPMothersMaritalStatus" />
+                <ScalarProperty Name="EPMothersOccupation" ColumnName="EPMothersOccupation" />
+                <ScalarProperty Name="EPMothersAge" ColumnName="EPMothersAge" />
+                <ScalarProperty Name="EPMothersName" ColumnName="EPMothersName" />
+                <ScalarProperty Name="EPMotherAlive" ColumnName="EPMotherAlive" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="Visit_Pk" ColumnName="Visit_Pk" />
+                <ScalarProperty Name="Ptn_pk" ColumnName="Ptn_pk" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dtl_PatientAppointment">
+            <EntityTypeMapping TypeName="IQCareKAWEModel.dtl_PatientAppointment">
+              <MappingFragment StoreEntitySet="dtl_PatientAppointment">
+                <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="AppNote" ColumnName="AppNote" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="AppStatus" ColumnName="AppStatus" />
+                <ScalarProperty Name="AppReason" ColumnName="AppReason" />
+                <ScalarProperty Name="AppDate" ColumnName="AppDate" />
+                <ScalarProperty Name="Visit_pk" ColumnName="Visit_pk" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Ptn_pk" ColumnName="Ptn_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mst_User">
+            <EntityTypeMapping TypeName="IQCareKAWEModel.mst_User">
+              <MappingFragment StoreEntitySet="mst_User">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+                <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mst_Drug">
+            <EntityTypeMapping TypeName="IQCareKAWEModel.Mst_Drug">
+              <MappingFragment StoreEntitySet="Mst_Drug">
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="ItemInstructions" ColumnName="ItemInstructions" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="PurchaseUnit" ColumnName="PurchaseUnit" />
+                <ScalarProperty Name="DispensingUnit" ColumnName="DispensingUnit" />
+                <ScalarProperty Name="SellingUnitPrice" ColumnName="SellingUnitPrice" />
+                <ScalarProperty Name="QtyPerPurchaseUnit" ColumnName="QtyPerPurchaseUnit" />
+                <ScalarProperty Name="PurchaseUnitPrice" ColumnName="PurchaseUnitPrice" />
+                <ScalarProperty Name="MinStock" ColumnName="MinStock" />
+                <ScalarProperty Name="MaxStock" ColumnName="MaxStock" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="FDACode" ColumnName="FDACode" />
+                <ScalarProperty Name="DispensingUnitPrice" ColumnName="DispensingUnitPrice" />
+                <ScalarProperty Name="DispensingMargin" ColumnName="DispensingMargin" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="DrugName" ColumnName="DrugName" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+                <ScalarProperty Name="DrugID" ColumnName="DrugID" />
+                <ScalarProperty Name="Drug_pk" ColumnName="Drug_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
