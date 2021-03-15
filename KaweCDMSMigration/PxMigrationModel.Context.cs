@@ -32,6 +32,8 @@ namespace KaweCDMSMigration
         public virtual DbSet<dtl_PatientAppointment> dtl_PatientAppointment { get; set; }
         public virtual DbSet<mst_User> mst_User { get; set; }
         public virtual DbSet<Mst_Drug> Mst_Drug { get; set; }
+        public virtual DbSet<dtl_PatientPharmacyOrder> dtl_PatientPharmacyOrder { get; set; }
+        public virtual DbSet<ord_PatientPharmacyOrder> ord_PatientPharmacyOrder { get; set; }
     
         public virtual ObjectResult<pr_PxMigration_Result> pr_PxMigration()
         {

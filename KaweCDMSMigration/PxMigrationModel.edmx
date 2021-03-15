@@ -130,6 +130,37 @@
           <Property Name="UpdateUserId" Type="int" />
           <Property Name="AppointmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <EntityType Name="dtl_PatientPharmacyOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ptn_pharmacy_pk" Type="int" Nullable="false" />
+          <Property Name="Drug_Pk" Type="int" Nullable="false" />
+          <Property Name="GenericID" Type="int" Nullable="false" />
+          <Property Name="StrengthID" Type="int" Nullable="false" />
+          <Property Name="FrequencyID" Type="int" />
+          <Property Name="SingleDose" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Duration" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OrderedQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DispensedQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Financed" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="RegimenId" Type="int" />
+          <Property Name="Prophylaxis" Type="int" />
+          <Property Name="BatchNo" Type="int" />
+          <Property Name="TreatmentPhase" Type="varchar" MaxLength="50" />
+          <Property Name="Month" Type="int" />
+          <Property Name="ExpiryDate" Type="datetime" />
+          <Property Name="TabId" Type="int" />
+          <Property Name="PrintPrescriptionStatus" Type="int" />
+          <Property Name="PatientInstructions" Type="varchar" MaxLength="500" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WhyPartial" Type="varchar" MaxLength="250" />
+          <Property Name="ScheduleId" Type="int" />
+          <Property Name="pillCount" Type="int" />
+        </EntityType>
         <EntityType Name="mst_User">
           <Key>
             <PropertyRef Name="UserID" />
@@ -144,6 +175,41 @@
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="UpdateDate" Type="datetime" />
           <Property Name="EmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="ord_PatientPharmacyOrder">
+          <Key>
+            <PropertyRef Name="ptn_pharmacy_pk" />
+          </Key>
+          <Property Name="ptn_pharmacy_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ptn_pk" Type="int" Nullable="false" />
+          <Property Name="VisitID" Type="int" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="OrderedBy" Type="int" />
+          <Property Name="OrderedByDate" Type="datetime" />
+          <Property Name="DispensedBy" Type="int" />
+          <Property Name="DispensedByDate" Type="datetime" />
+          <Property Name="OrderType" Type="int" />
+          <Property Name="Height" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="FDC" Type="int" />
+          <Property Name="ProgID" Type="int" />
+          <Property Name="Weight" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="HoldMedicine" Type="int" />
+          <Property Name="Signature" Type="int" />
+          <Property Name="EmployeeID" Type="bigint" />
+          <Property Name="ProviderID" Type="int" />
+          <Property Name="DeleteFlag" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="PharmacyPeriodTaken" Type="int" />
+          <Property Name="RegimenLine" Type="int" />
+          <Property Name="PharmacyNotes" Type="varchar" MaxLength="8000" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="orderstatus" Type="int" />
+          <Property Name="ReportingID" Type="varchar" MaxLength="50" />
+          <Property Name="CPAD_PharmacyOrderId" Type="int" />
+          <Property Name="PatientMasterVisitId" Type="int" />
+          <Property Name="PatientId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IQCareKAWE.dbo.Mst_Drug' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -186,7 +252,9 @@ warning 6002: The table/view 'IQCareKAWE.dbo.Mst_Drug' does not have a primary k
           <EntitySet Name="DTL_FBCUSTOMFIELD_Epicare" EntityType="Self.DTL_FBCUSTOMFIELD_Epicare" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DTL_FBCUSTOMFIELD_Epicare_Patient_History" EntityType="Self.DTL_FBCUSTOMFIELD_Epicare_Patient_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dtl_PatientAppointment" EntityType="Self.dtl_PatientAppointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dtl_PatientPharmacyOrder" EntityType="Self.dtl_PatientPharmacyOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mst_User" EntityType="Self.mst_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ord_PatientPharmacyOrder" EntityType="Self.ord_PatientPharmacyOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mst_Drug" EntityType="Self.Mst_Drug" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Mst_Drug].[Drug_pk] AS [Drug_pk], 
@@ -226,6 +294,8 @@ warning 6002: The table/view 'IQCareKAWE.dbo.Mst_Drug' does not have a primary k
           <EntitySet Name="dtl_PatientAppointment" EntityType="IQCareKAWEModel.dtl_PatientAppointment" />
           <EntitySet Name="mst_User" EntityType="IQCareKAWEModel.mst_User" />
           <EntitySet Name="Mst_Drug" EntityType="IQCareKAWEModel.Mst_Drug" />
+          <EntitySet Name="dtl_PatientPharmacyOrder" EntityType="IQCareKAWEModel.dtl_PatientPharmacyOrder" />
+          <EntitySet Name="ord_PatientPharmacyOrder" EntityType="IQCareKAWEModel.ord_PatientPharmacyOrder" />
         </EntityContainer>
         <ComplexType Name="pr_PxMigration_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -435,6 +505,72 @@ warning 6002: The table/view 'IQCareKAWE.dbo.Mst_Drug' does not have a primary k
           <Property Name="Sequence" Type="Int32" Nullable="false" />
           <Property Name="ItemInstructions" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Abbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="dtl_PatientPharmacyOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ptn_pharmacy_pk" Type="Int32" Nullable="false" />
+          <Property Name="Drug_Pk" Type="Int32" Nullable="false" />
+          <Property Name="GenericID" Type="Int32" Nullable="false" />
+          <Property Name="StrengthID" Type="Int32" Nullable="false" />
+          <Property Name="FrequencyID" Type="Int32" />
+          <Property Name="SingleDose" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Duration" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OrderedQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DispensedQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Financed" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="RegimenId" Type="Int32" />
+          <Property Name="Prophylaxis" Type="Int32" />
+          <Property Name="BatchNo" Type="Int32" />
+          <Property Name="TreatmentPhase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="TabId" Type="Int32" />
+          <Property Name="PrintPrescriptionStatus" Type="Int32" />
+          <Property Name="PatientInstructions" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WhyPartial" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleId" Type="Int32" />
+          <Property Name="pillCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ord_PatientPharmacyOrder">
+          <Key>
+            <PropertyRef Name="ptn_pharmacy_pk" />
+          </Key>
+          <Property Name="ptn_pharmacy_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ptn_pk" Type="Int32" Nullable="false" />
+          <Property Name="VisitID" Type="Int32" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="OrderedBy" Type="Int32" />
+          <Property Name="OrderedByDate" Type="DateTime" Precision="3" />
+          <Property Name="DispensedBy" Type="Int32" />
+          <Property Name="DispensedByDate" Type="DateTime" Precision="3" />
+          <Property Name="OrderType" Type="Int32" />
+          <Property Name="Height" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="FDC" Type="Int32" />
+          <Property Name="ProgID" Type="Int32" />
+          <Property Name="Weight" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="HoldMedicine" Type="Int32" />
+          <Property Name="Signature" Type="Int32" />
+          <Property Name="EmployeeID" Type="Int64" />
+          <Property Name="ProviderID" Type="Int32" />
+          <Property Name="DeleteFlag" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="PharmacyPeriodTaken" Type="Int32" />
+          <Property Name="RegimenLine" Type="Int32" />
+          <Property Name="PharmacyNotes" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="orderstatus" Type="Int32" />
+          <Property Name="ReportingID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CPAD_PharmacyOrderId" Type="Int32" />
+          <Property Name="PatientMasterVisitId" Type="Int32" />
+          <Property Name="PatientId" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -651,6 +787,74 @@ warning 6002: The table/view 'IQCareKAWE.dbo.Mst_Drug' does not have a primary k
                 <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
                 <ScalarProperty Name="DrugID" ColumnName="DrugID" />
                 <ScalarProperty Name="Drug_pk" ColumnName="Drug_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dtl_PatientPharmacyOrder">
+            <EntityTypeMapping TypeName="IQCareKAWEModel.dtl_PatientPharmacyOrder">
+              <MappingFragment StoreEntitySet="dtl_PatientPharmacyOrder">
+                <ScalarProperty Name="pillCount" ColumnName="pillCount" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="WhyPartial" ColumnName="WhyPartial" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientInstructions" ColumnName="PatientInstructions" />
+                <ScalarProperty Name="PrintPrescriptionStatus" ColumnName="PrintPrescriptionStatus" />
+                <ScalarProperty Name="TabId" ColumnName="TabId" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="TreatmentPhase" ColumnName="TreatmentPhase" />
+                <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+                <ScalarProperty Name="Prophylaxis" ColumnName="Prophylaxis" />
+                <ScalarProperty Name="RegimenId" ColumnName="RegimenId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Financed" ColumnName="Financed" />
+                <ScalarProperty Name="DispensedQuantity" ColumnName="DispensedQuantity" />
+                <ScalarProperty Name="OrderedQuantity" ColumnName="OrderedQuantity" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="SingleDose" ColumnName="SingleDose" />
+                <ScalarProperty Name="FrequencyID" ColumnName="FrequencyID" />
+                <ScalarProperty Name="StrengthID" ColumnName="StrengthID" />
+                <ScalarProperty Name="GenericID" ColumnName="GenericID" />
+                <ScalarProperty Name="Drug_Pk" ColumnName="Drug_Pk" />
+                <ScalarProperty Name="ptn_pharmacy_pk" ColumnName="ptn_pharmacy_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ord_PatientPharmacyOrder">
+            <EntityTypeMapping TypeName="IQCareKAWEModel.ord_PatientPharmacyOrder">
+              <MappingFragment StoreEntitySet="ord_PatientPharmacyOrder">
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="PatientMasterVisitId" ColumnName="PatientMasterVisitId" />
+                <ScalarProperty Name="CPAD_PharmacyOrderId" ColumnName="CPAD_PharmacyOrderId" />
+                <ScalarProperty Name="ReportingID" ColumnName="ReportingID" />
+                <ScalarProperty Name="orderstatus" ColumnName="orderstatus" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="PharmacyNotes" ColumnName="PharmacyNotes" />
+                <ScalarProperty Name="RegimenLine" ColumnName="RegimenLine" />
+                <ScalarProperty Name="PharmacyPeriodTaken" ColumnName="PharmacyPeriodTaken" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="HoldMedicine" ColumnName="HoldMedicine" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ProgID" ColumnName="ProgID" />
+                <ScalarProperty Name="FDC" ColumnName="FDC" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="DispensedByDate" ColumnName="DispensedByDate" />
+                <ScalarProperty Name="DispensedBy" ColumnName="DispensedBy" />
+                <ScalarProperty Name="OrderedByDate" ColumnName="OrderedByDate" />
+                <ScalarProperty Name="OrderedBy" ColumnName="OrderedBy" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="VisitID" ColumnName="VisitID" />
+                <ScalarProperty Name="Ptn_pk" ColumnName="Ptn_pk" />
+                <ScalarProperty Name="ptn_pharmacy_pk" ColumnName="ptn_pharmacy_pk" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

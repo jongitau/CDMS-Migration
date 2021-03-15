@@ -167,6 +167,8 @@
     <Compile Include="Controllers\PatientAppointmentsController.cs" />
     <Compile Include="Controllers\PatientHistoryController.cs" />
     <Compile Include="Controllers\PatientVisitsController.cs" />
+    <Compile Include="Controllers\PharmacyDetailsController.cs" />
+    <Compile Include="Controllers\PharmacyOrdersController.cs" />
     <Compile Include="Controllers\PxDetailsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -179,6 +181,9 @@
     <Compile Include="dtl_PatientAppointment.cs">
       <DependentUpon>PxMigrationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="dtl_PatientPharmacyOrder.cs">
+      <DependentUpon>PxMigrationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,11 +192,16 @@
     <Compile Include="Models\PatientDetails.cs" />
     <Compile Include="Models\PatientHistory.cs" />
     <Compile Include="Models\PatientVisitsDetails.cs" />
+    <Compile Include="Models\PharmacyDetails.cs" />
+    <Compile Include="Models\PharmacyOrders.cs" />
     <Compile Include="Models\UserDetails.cs" />
     <Compile Include="Mst_Drug.cs">
       <DependentUpon>PxMigrationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="mst_User.cs">
+      <DependentUpon>PxMigrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ord_PatientPharmacyOrder.cs">
       <DependentUpon>PxMigrationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
