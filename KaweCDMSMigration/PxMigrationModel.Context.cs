@@ -37,7 +37,7 @@ namespace KaweCDMSMigration
     
         public virtual ObjectResult<pr_PxMigration_Result> pr_PxMigration()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pr_PxMigration_Result>("pr_PxMigration");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<pr_PxMigration_Result>("pr_PxMigration");
         }
     }
 }

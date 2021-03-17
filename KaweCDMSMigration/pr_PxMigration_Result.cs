@@ -34,7 +34,7 @@ namespace KaweCDMSMigration
         public Nullable<int> DistrictName { get; set; }
         public Nullable<int> Province { get; set; }
         public Nullable<int> MaritalStatus { get; set; }
-        public string ID_PassportNo { get; set; }
+        public string IDPassportNo { get; set; }
         public Nullable<int> Town { get; set; }
         public string ID_PassportNo1 { get; set; }
         public string TreatmentSupporterRelationship { get; set; }
